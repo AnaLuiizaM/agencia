@@ -2,7 +2,7 @@ package br.com.senai;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Arrays;
+
 
 import br.com.senai.enuns.Estado;
 import br.com.senai.enuns.Genero;
@@ -27,6 +27,10 @@ public class App {
         yasmin.nacionaliodade = "Brasil";
         yasmin.endereco = endereco;
 
+        Candidato ana = new Candidato();
+        ana.nomeCompleto = "Ana Sousa";
+        ana.dataNascimento = LocalDate.of(1990, 11, 12);
+
         Escolaridade e1 = new Escolaridade();
         e1.nomeCurso = "Sistema para Internet";
         e1.nomeInstituicao = "Senai";
@@ -40,24 +44,34 @@ public class App {
         e2.dataInicio = LocalDate.of(2022, 10, 01);
         e2.dataFim = LocalDate.of(2023, 06, 18);
 
-       // List<Escolaridade> list = new ArrayList<>();
-       // list.add(e1);
-       // list.add(e2);
+        // List<Escolaridade> list = new ArrayList<>();
+        // list.add(e1);
+        // list.add(e2);
 
-        yasmin.escolaridade = Arrays.asList(e1,e2); 
+        // yasmin.escolaridade = Arrays.asList(e1,e2); 
 
 
 
         System.out.println("Nome Completo: "+yasmin.nomeCompleto);
-        System.out.println("Idade: "+Period.between(yasmin.dataNascimento, 
-        LocalDate.now()).getYears());
-        System.out.println("Genero: "+yasmin.genero);
-        System.out.println("Nacionalidade é:  "+yasmin.nacionaliodade);
-        System.out.println("Endereco: "+yasmin.endereco.logradouro);
+        System.out.println("Idade: "+yasmin.calcularidade());
+        System.out.println("É maior de idade: "+ yasmin.eMaiorDeIdade() );
+
+        System.out.println("***********************************");
+
+        System.out.println("Nome Completo: "+ana.nomeCompleto);
+        System.out.println("Idade: "+ana.calcularidade());
+        System.out.println("É maior de idade: "+ ana.eMaiorDeIdade());
+
+ 
+
+        // System.out.println("Genero: "+yasmin.genero);
+       // System.out.println("Nacionalidade é:  "+yasmin.nacionaliodade);
+      // System.out.println("Endereco: "+yasmin.endereco.logradouro);
 
         for (Escolaridade escolaridade : yasmin.escolaridade) {
             System.out.println(escolaridade.nomeCurso+" - "
             +escolaridade.nomeInstituicao);
+
         }
     }
 }
